@@ -1,0 +1,47 @@
+.white-space--dot {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    &::before {
+        content: "● ● ●";
+        font-size: 8px;
+        position: relative;
+        left: calc(50% - 12px);
+    }
+}
+
+.b-space {
+    padding-bottom: 10px;
+}
+
+.u-b-space {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+@mixin heading-icon($img-path, $top, $margin-right, $width) {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: $top;
+    margin-right: $margin-right;
+    width: $width;
+    height: $width;
+    background-image: $img-path;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.post-content h1::before {
+    @include heading-icon(url(/assets/img/custom/pg-h1.png), 5px, 6px, 30px);
+}
+
+.post-content h2::before {
+    @include heading-icon(url(/assets/img/custom/pg-h2.png), 4px, 3px, 24px);
+}
+
+@font-face {
+    font-family: "TmoneyRoundWindRegular";
+    src: url(/assets/font/TmoneyRoundWindRegular.ttf);
+}
