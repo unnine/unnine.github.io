@@ -1,0 +1,21 @@
+@mixin heading-icon($img-path, $top, $margin-right, $width) {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: $top;
+    margin-right: $margin-right;
+    width: $width;
+    height: $width;
+    background-image: $img-path;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// .post-content h1::before {
+//     @include heading-icon(url(/assets/img/custom/pg-h1.png), 5px, 6px, 30px);
+// }
+
+// .post-content h2::before {
+//     @include heading-icon(url(/assets/img/custom/pg-h2.png), 4px, 3px, 24px);
+// }

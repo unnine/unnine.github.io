@@ -1,0 +1,21 @@
+.white-space--dot {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    &::before {
+        content: "· · ·";
+        font-size: 20px;
+        color: rgb(80, 120, 210);
+        position: relative;
+        left: calc(50% - 12px);
+    }
+}
+
+.b-space {
+    padding-bottom: 5px;
+}
+
+.u-b-space {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}

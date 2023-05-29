@@ -1,0 +1,27 @@
+p {
+    line-height: 200%;
+}
+
+
+span {
+    &.link {
+        color: var(--custom-color-contrast-default);
+    }
+
+    &.thick {
+        font-weight: bold;
+    }
+
+    &.danger {
+        color: rgb(220, 110, 130);
+    }
+
+    &.soft {
+        color: rgb(70, 70, 240);
+    }
+
+    &.weak {
+        color: rgb(160, 160, 160);
+        font-size: 0.95rem;
+    }
+}

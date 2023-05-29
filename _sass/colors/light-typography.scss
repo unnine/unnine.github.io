@@ -3,6 +3,9 @@
  */
 
 @mixin light-scheme {
+  /* customs */
+  --custom-color-contrast-default: rgb(0, 0, 0);
+
   /* Framework color */
   --main-bg: white;
   --mask-bg: #c1c3c5;
