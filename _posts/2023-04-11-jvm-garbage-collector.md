@@ -176,6 +176,8 @@ STW가 발생하며 G1 GC는 비어있는 영역과 GC 대상 영역을 식별�
 
 이렇게 여유 메모리가 부족해지는 현상을 할당 실패(Allocation Failure, Evacuation Failure)라고 하며 이 때는 STW가 발생하여 GC를 수행한다.
 
+<!--
+
 <div class="white-space--dot"></div>
 
 ## ZGC `-XX:+UseZGC`
@@ -225,17 +227,7 @@ Heap 객체에 대한 메모리 주소와 해당 객체의 상태를 알려주�
 3. 이 단계까지 왔다는 것은 찾는 객체가 재배치 대상 객체임을 뜻한다. 해당 객체의 주소 정보가 전달 테이블(Forwarding Table)에 없다면 새 주소를 추가한다.
 4. 전달 테이블에서 주소를 찾아 수정한 뒤 Remapped 비트를 1로 수정하고 참조를 반환한다.
 
-<div class="white-space--dot"></div>
-
-# 후기
-이렇게 전체적으로 Java의 GC의 종류와 동작 방식을 살펴보았다.  
-
-공부하면서 어려웠던 점은 ZGC에 대한 설명은 공식 문서들이 추상적으로 설명한 경우가 많아 구체적인 과정으로 풀어서 이해하는게 난해했다는 점이다. 인터넷을 통해 검색해봐도 포스팅마다 동작 방식의 표현이 상이한 경우가 많아 더욱 어려웠다.  
-
-그래서 결국 여러 공식 문서와 정리가 잘 된 것으로 생각되는 포스팅들을 기반으로 공통 분모들을 추려 큰 흐름이라도 이해하고 넘어갈 수 있도록 노력했다. 더 깊은 이해가 있었다면 보다 명확하게 파악할 수 있었을 거란 아쉬움이 든다.
-
-이번 주제는 내게 JVM의 메모리가 어떻게 관리되는지 더 깊게 이해할 수 있게 해주었고, 반면 나 자신에게 부족함을 느껴 성장에 대한 자극을 더욱 받게 한 경험이기도 했다.
-
+-->
 
 # 참고
 - [Java SE, HotSpot Virtual Machine Garbage Collection Tuning Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/collectors.html){:target="_blank"}

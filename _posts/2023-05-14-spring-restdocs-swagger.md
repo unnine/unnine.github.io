@@ -1,7 +1,7 @@
 ---
 title: Spring Boot 3 API Documentation (Spring REST Docs & Swagger UI)
 date: 2023-05-14
-categories: [JAVA]
+categories: [Spring]
 tags: [Java, Spring Boot 3, Spring REST Docs, Swagger UI, API Documentation]
 ---
 
@@ -195,6 +195,8 @@ springdoc:
 ![img-description](/assets/img/posts/spring-docs-swagger/springdocs3.png){:target="_blank"}  
 
 이렇게 Swagger와 Spring REST Docs을 통합함으로써 각 도구의 장점들을 얻을 수 있었다.  
+
+<br/>
 
 ## '그' 문제
 중간에 언급했던 허무했던 결말을 맞은 '그' 문제를 남긴다. 나를 제외하고 이런 실수를 하는 분은 없을 것이다.  
