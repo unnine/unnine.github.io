@@ -3,6 +3,7 @@
 }
 
 #panel-wrapper {
+    width: 300px;
     position: fixed;
     right: 0;
 }
@@ -15,8 +16,26 @@
     display: none;
 }
 
+#back-to-top {
+    bottom: 6.2rem;
+}
+
+#core-wrapper {
+    & h2 {
+        margin-top: 3.75rem;
+    }
+
+    & h3 {
+        margin-top: 2.75rem;
+    }
+}
+
+p {
+    margin-bottom: 0.6rem;;
+}
 
 @media (min-width: 850px) {
+
     #topbar-wrapper {
         left: 170px;
     }
@@ -28,8 +47,8 @@
 
 
 @media (min-width: 1200px) {
-    #panel-wrapper {
-        width: 250px;
+    #back-to-top {
+        right: 310px;
     }
 }
 
@@ -37,10 +56,6 @@
 @media (min-width: 1650px) {
     #main-wrapper {
         margin-left: 270px;
-    }
-
-    #panel-wrapper {
-        width: 300px;
     }
 
     #sidebar {
@@ -68,6 +83,10 @@
 
     #main {
         max-width: 1140px;
+    }
+
+    #back-to-top {
+        right: 310px;
     }
 }
 

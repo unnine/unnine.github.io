@@ -1,7 +1,7 @@
 ---
 title: 자바 가상 머신의 원리와 이해 (1) - 데이터 유형 (Java Virtual Machine - Data Types)
 date: 2023-04-05
-categories: [JAVA]
+categories: [Java]
 tags: [Java, JVM, Java Virtual Machine]
 ---
 *<sup>이 시리즈는 Hotspot JVM - [JSR-392(Java SE 17)](https://docs.oracle.com/javase/specs/jvms/se17/html/index.html){:target="_blank"}를 기준으로 작성되었습니다.</sup>*

@@ -7,8 +7,6 @@ tags: [Java, Spring Boot 3, Spring REST Docs, Swagger UI, API Documentation]
 
 사이드 프로젝트의 환경을 구성하며 API 문서화를 위해 Swagger와 Spring REST Docs 사이에서 고민했다. Swagger는 컨트롤러 코드에 문서화 코드가 적지 않게 들어가는 것을 경험했던 터라 Spring REST Docs를 사용하는 것으로 마음이 기울었는데, 결국 **Spring REST Docs와 Swagger를 함께 사용**하게 되었다. 둘 다 단독으로 쓰기에는 아쉬운 단점이 있기 때문이다.
 
-<br/>
-
 ## [<span class="link">Swagger UI</span>](https://swagger.io/tools/swagger-ui/){:target="_blank"}
 Swagger UI는 대표적인 API 문서화 도구이며 API를 테스트해 볼 수 있는 기능도 제공한다.  
 코드를 굳이 작성하지 않아도 Swagger UI는 기본적인 API 문서를 생성해준다. 그걸로 충분하다면 괜찮겠으나 개발하다 보면 다양한 정보를 작성할 필요가 생기며 어느샌가 다음과 같은 모습을 마주치게 된다.  
@@ -17,16 +15,12 @@ Swagger UI는 대표적인 API 문서화 도구이며 API를 테스트해 볼 �
 
 비즈니스 코드와 관련없는 문서화 코드가 많은 영역을 차지해 핵심 코드를 알아보기 힘들게 만든다. 더불어 개발자가 비즈니스 코드를 변경한 뒤 문서화 코드에 반영하는 것을 지나치면 **<span class="danger">문서와 기능이 불일치하는 상황이 발생</span>**한다.
 
-<br/>
-
 ## [<span class="link">Spring REST Docs</span>](https://docs.spring.io/spring-restdocs/docs/3.0.0/reference/htmlsingle/){:target="_blank"}
 
 스프링에서 제공하는 API 문서화 도구이며 asciidoctor나 markdown 형식을 지원한다.  
 특징은 문서화 코드를 **테스트 코드로 작성한다**는 점이며 실제 API의 요청, 응답 객체와 다를 경우 테스트가 실패한다. 따라서 **기능과 문서의 동기화를 보장**한다. 이 점이 Spring REST Docs로 마음이 기울었던 이유다. 하지만 Spring REST Docs에도 아쉬운 점이 존재했다.  
 - 빌드 시 생성된 문서 파일들을 별도의 [템플릿 파일에 작성하여 관리](https://docs.spring.io/spring-restdocs/docs/3.0.0/reference/htmlsingle/#getting-started-using-the-snippets){:target="_blank"}
 - API 테스트 기능이 없음. 따라서 curl, postman, httpie같은 도구를 별도 사용.
-
-<br/>
 
 ## SwaggerUI vs Spring REST Docs
 
@@ -62,8 +56,6 @@ Swagger UI는 대표적인 API 문서화 도구이며 API를 테스트해 볼 �
 
 위 단점들이 너무 아쉬워 장점만 취할 수는 없을까 고민하던 중, 앞서 같은 문제로 고민했던 좋은 레퍼런스들을 통해 방법을 찾게 되었다. 다만, 레퍼런스들은 Spring Boot 2.x 환경이었기 때문에 이번 글을 통해 Spring Boot 3.x 환경에 적용하는 방법을 알아본다.
 
-<br/>
-
 ## SwaggerUI와 Spring REST Docs 통합
 
 SwaggerUI와 Spring REST Dodcs를 통합하는 방법은 다음과 같다.
@@ -74,8 +66,6 @@ SwaggerUI와 Spring REST Dodcs를 통합하는 방법은 다음과 같다.
 간단한 방법이니 금방 적용할 것이란 기대와 다르게 문제가 발생했는데, 이 문제에 대해서는 마지막에 확인하기로 하고 우선 통합하는 방법을 알아보자.  
 <span class="weak">(문제를 해결하려고 한나절을 고생한 끝에 어이없을 정도로 허무한 결말을 맞았다.)</span>  
 
-<div class="b-space"></div>
-
 ### 0. Dependencies
 현재 프로젝트의 의존성 구성은 다음과 같다.  
 - java 17
@@ -84,13 +74,10 @@ SwaggerUI와 Spring REST Dodcs를 통합하는 방법은 다음과 같다.
 - restdocs-api-sepc 0.18.2
 - springdoc-openapi-starter-webmvc-ui:2.1.0
 
->[<span class="link thick">Spring REST Docs</span>](https://docs.spring.io/spring-restdocs/docs/3.0.0/reference/htmlsingle/#getting-started-documentation-snippets){:target="_blank"}는 MVC 단위 테스트에 적합한 <span class="soft">MockMvc</span>, WebFlux의 테스트도 지원하는 <span class="soft">WebTestClient</span>, 통합 테스트에 적합한 <span class="soft">REST Assured</span>를 소개한다. 현재 프로젝트는 MVC기반이고 API는 단위 테스트만 작성할 것이라 <span class="soft">MockMvc</span>를 선택했다.  
+>[<span class="link thick">Spring REST Docs</span>](https://docs.spring.io/spring-restdocs/docs/3.0.0/reference/htmlsingle/#getting-started-documentation-snippets){:target="_blank"}는 MVC 단위 테스트에 적합한 <span class="emphasis">MockMvc</span>, WebFlux의 테스트도 지원하는 <span class="emphasis">WebTestClient</span>, 통합 테스트에 적합한 <span class="emphasis">REST Assured</span>를 소개한다. 현재 프로젝트는 MVC기반이고 API는 단위 테스트만 작성할 것이라 <span class="emphasis">MockMvc</span>를 선택했다.  
 
 >[<span class="link thick">restdocs-api-spec</span>](https://github.com/ePages-de/restdocs-api-spec){:target="_blank"}의 공식 문서는 다음과 같이 버전을 안내하고 있다.
 > ![img-description](/assets/img/posts/spring-docs-swagger/apispec1.png){:target="_blank"}  
-
-
-<div class="b-space"></div>
 
 ### 1. build.gradle에 의존성 추가
 ```gradle
@@ -126,8 +113,6 @@ dependencies {
     testImplementation "com.epages:restdocs-api-spec-mockmvc:${restdocsVersion}"
 }
 ```
-
-<div class="b-space"></div>
 
 ### 2. build.gradle에 openapi3 및 task 설정
 ```gradle
@@ -165,8 +150,6 @@ tasks.register('generateOpenApi') {
 > 서버 실행 전 generateOpenApi를 실행하면 항상 최신 API 문서를 생성할 수 있다.  
 > [IntelliJ] Run/Debug Configurations >> Before launch >> Run Gradle task >> generateOpenApi
 
-<div class="b-space"></div>
-
 ### 3. swagger 설정
 마지막으로 swagger에 openapi 파일 경로를 지정해주면 완료된다.
 ```yaml
@@ -177,9 +160,6 @@ springdoc:
   swagger-ui:
     url: /docs/openapi3.yaml
 ```
-
-
-<br/>
 
 ## 어떻게 달라졌을까?
 앞서 봤던 Swagger 코드를 Spring REST Docs 코드로 변경하면 컨트롤러에는 핵심 코드만 남게 된다.
