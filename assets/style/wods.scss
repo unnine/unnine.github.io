@@ -16,6 +16,10 @@ span {
         color: rgb(220, 110, 130);
     }
 
+    &.very-danger {
+        color: crimson;
+    }
+
     &.emphasis {
         color: rgb(70, 70, 240);
     }
