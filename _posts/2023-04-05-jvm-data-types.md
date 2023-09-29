@@ -103,7 +103,7 @@ JVM은 멀티 스레드를 지원하는데 각 스레드에는 PC(program counte
 
 종합해보면, 호출된 메서드가 끝날 때 ret 명령을 통해 지역 변수 returnAddress의 값(호출자의 주소)을 가져와 PC 레지스터에 저장하고 return 명령을 통해 메서드를 종료하면서 PC 레지스터에 저장된 호출자의 주소를 이용하여 호출자의 메서드로 복귀해 실행을 이어나가게 되는 것이다.
 
-따라서 <span style="color: DodgerBlue;">JVM의 returnAddress 타입은 프로그램 실행 도중 호출된 메서드(서브 루틴)가 종료된 후 호출했던 메서드로 복귀하기 위한 주소값을 저장하는데 사용되는 타입</span>이다.
+따라서 <span class="emphasis-weak">JVM의 returnAddress 타입은 프로그램 실행 도중 호출된 메서드(서브 루틴)가 종료된 후 호출했던 메서드로 복귀하기 위한 주소값을 저장하는데 사용되는 타입</span>이다.
 
 
 <div class="white-space--dot"></div>
@@ -119,7 +119,7 @@ JVM은 멀티 스레드를 지원하는데 각 스레드에는 PC(program counte
 구현에 상세한 부분은 각 벤더사에게 맡기기 때문에 가능성을 열어두는 표현을 사용한 것으로 보인다.  
 Java를 공부하면서 참조란 무엇인가에 대한 명확한 답이 떠오르지 않았었는데 이 부분을 읽고 의문이 해소되었다. 위 내용을 정리하면 다음과 같다.
 
-<span style="color: DodgerBlue;">객체란 메모리에 동적으로 할당된 클래스의 인스턴스 혹은 배열을 말하며 JVM의 참조 타입은 메모리에 할당된 객체의 주소값을 가진다.</span>
+<span class="emphasis-weak">객체란 메모리에 동적으로 할당된 클래스의 인스턴스 혹은 배열을 말하며 JVM의 참조 타입은 메모리에 할당된 객체의 주소값을 가진다.</span>
 
 <div class="b-space" ></div>
 ### Pass by Reference
@@ -321,12 +321,12 @@ com.playground.my.Member@5abca1e0 // member (ageOf())
 
 만약 ageOf()의 파라미터 member로 setAge 메서드를 호출해 나이 값을 20에서 10으로 바꾼 후, start()의 temp 변수로 나이를 출력해보면 10으로 출력된다. 동일한 메모리 주소의 객체를 참조하고 있기 때문에 발생한 현상이다.  
 
-이러한 특성을 <span style="color: DodgerBlue;">Pass by Reference</span>라고 하며 참조 타입을 다룰 때는 항상 이 점을 유념해야 한다.
+이러한 특성을 <span class="emphasis-weak">Pass by Reference</span>라고 하며 참조 타입을 다룰 때는 항상 이 점을 유념해야 한다.
 
 <div class="b-space" ></div>
 
 ### Pass by Value
-그럼 Primitive Type은 참조 타입과 동일하게 동작할까? 아니다. Primitive Type은 참조 타입과 다르게 참조가 아닌 값 자체가 전달된다. 이런  특성을 <span style="color: DodgerBlue;">Pass by Value</span>라고 한다.  
+그럼 Primitive Type은 참조 타입과 동일하게 동작할까? 아니다. Primitive Type은 참조 타입과 다르게 참조가 아닌 값 자체가 전달된다. 이런  특성을 <span class="emphasis-weak">Pass by Value</span>라고 한다.  
 
 명령어 코드를 통해 직접 확인해보자. 각 명령어의 자세한 사항은 위에서 어느 정도 설명했으므로 여기서는 필요한 부분만 설명한다. 마찬가지로 빠르게 핵심만 짚고 넘어가려면 [여기](/posts/jvm-data-types/#pass-by-value)로 바로 넘어가자.
 ```java

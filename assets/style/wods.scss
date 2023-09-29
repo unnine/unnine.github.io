@@ -24,6 +24,10 @@ span {
         color: rgb(70, 70, 240);
     }
 
+    &.emphasis-weak {
+        color: rgb(30, 144, 255);
+    }
+
     &.weak {
         color: rgb(160, 160, 160);
         font-size: 0.95rem;
